@@ -6,7 +6,6 @@ export const loginApi = {
     axios
       .post(APP_CONFIG.API_URL + "auth/login", payload)
       .then((response) => {
-        console.log(response);
         if (response.data) {
           // Setting cookie for later
           login.$cookies.set("jwt-token", response.data.access_token);

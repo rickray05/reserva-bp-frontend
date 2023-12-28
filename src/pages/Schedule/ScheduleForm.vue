@@ -18,6 +18,7 @@
               v-model="form.start_at"
               md-immediately
               :class="getValidationClass('start_at')"
+              key="start_at"
             >
               <label>Data Início</label>
             </md-datepicker>
@@ -40,6 +41,7 @@
               md-immediately
               :class="getValidationClass('end_at')"
               :md-model-type="String"
+              key="end_at"
             >
               <label>Data Fim</label>
             </md-datepicker>
@@ -207,14 +209,15 @@ export default {
     },
     clearForm() {
       this.$v.$reset();
-      this.form.start_at = new Date().toLocaleDateString("pt-br");
+      this.form.start_at = new Date();
       this.form.time_start_at = null;
-      this.form.end_at = new Date().toLocaleDateString("pt-br");
+      this.form.end_at = new Date();
       this.form.time_end_at = null;
       this.form.room = null;
       this.form.broker = null;
     },
     formatDate(dateValue) {
+      console.log(dateValue)
       var date = new Date(dateValue);
 
       var year = date.toLocaleString("default", { year: "numeric" });
@@ -222,6 +225,10 @@ export default {
       var day = date.toLocaleString("default", { day: "2-digit" });
 
       return year + "-" + month + "-" + day;
+    },
+    onChangeDateStart() {
+      console.log(this.form.start_at);
+      //this.form.end_at = this.form.start_at;
     },
   },
 };
