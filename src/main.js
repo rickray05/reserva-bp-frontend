@@ -31,11 +31,11 @@ import MaterialDashboard from "./material-dashboard";
 
 import Chartist from "chartist";
 
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import VueCookies from 'vue-cookies'
+import axios from "axios";
+import VueAxios from "vue-axios";
+import VueCookies from "vue-cookies";
 
-import DisableAutocomplete from 'vue-disable-autocomplete';
+import DisableAutocomplete from "vue-disable-autocomplete";
 
 // configure router
 const router = new VueRouter({
@@ -53,7 +53,7 @@ Vue.use(Notifications);
 Vue.use(VueAxios, axios);
 Vue.use(DisableAutocomplete);
 
-Vue.use(VueCookies, { expires: '7d'})
+Vue.use(VueCookies, { expires: "7d" });
 
 /* eslint-disable no-new */
 new Vue({

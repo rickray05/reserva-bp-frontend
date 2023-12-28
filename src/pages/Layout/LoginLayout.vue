@@ -1,6 +1,9 @@
 <template>
-  <div class="md-display-1" style="display: flex;justify-content: center;align-content: center;">
-    <div class="md-alignment-center-center" style="width: 50%;">
+  <div
+    class="md-display-1"
+    style="display: flex; justify-content: center; align-content: center"
+  >
+    <div class="md-alignment-center-center" style="width: 50%">
       <notifications></notifications>
       <content-login> </content-login>
     </div>

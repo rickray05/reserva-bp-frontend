@@ -1,5 +1,10 @@
 <template>
-  <form novalidate class="md-layout" @submit.prevent="validateUser" autocomplete="off">
+  <form
+    novalidate
+    class="md-layout"
+    @submit.prevent="validateUser"
+    autocomplete="off"
+  >
     <md-card>
       <md-card-header :data-background-color="dataBackgroundColor">
         <h4 class="title">{{ this.$props.title }}</h4>
@@ -145,7 +150,7 @@ export default {
         type: parseInt(this.form.type),
       };
 
-      if (this.form.password){
+      if (this.form.password) {
         payload = { ...payload, password: this.form.password };
       }
       this.$props.save(payload);
@@ -157,14 +162,14 @@ export default {
         this.saveUser();
       }
     },
-    clearForm () {
+    clearForm() {
       this.$v.$reset();
       this.form.password = null;
       this.form.confirmPassword = null;
       this.form.name = null;
       this.form.type = null;
       this.form.emailadress = null;
-    }
+    },
   },
 };
 </script>

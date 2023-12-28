@@ -11,20 +11,39 @@
           <div class="md-layout-item md-small-size-100 md-size-100">
             <md-field :class="getValidationClass('emailadress')">
               <label>Email</label>
-              <md-input v-model="form.emailadress" id="emailadress" name="emailadress" type="email" autocomplete="email"></md-input>
-              <span class="md-error" v-if="!$v.form.emailadress.required">O campo email é obrigatório</span>
-              <span class="md-error" v-else-if="!$v.form.emailadress.email">Email inválido</span>
+              <md-input
+                v-model="form.emailadress"
+                id="emailadress"
+                name="emailadress"
+                type="email"
+                autocomplete="email"
+              ></md-input>
+              <span class="md-error" v-if="!$v.form.emailadress.required"
+                >O campo email é obrigatório</span
+              >
+              <span class="md-error" v-else-if="!$v.form.emailadress.email"
+                >Email inválido</span
+              >
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-100">
             <md-field :class="getValidationClass('password')">
               <label>Password</label>
-              <md-input v-model="form.password" id="password" name="password"  type="password"></md-input>
-              <span class="md-error" v-if="!$v.form.password.required">O Campo senha é obrigatório</span>
+              <md-input
+                v-model="form.password"
+                id="password"
+                name="password"
+                type="password"
+              ></md-input>
+              <span class="md-error" v-if="!$v.form.password.required"
+                >O Campo senha é obrigatório</span
+              >
             </md-field>
           </div>
           <div class="md-layout-item md-size-100 text-center">
-            <md-button type="submit" class="md-raised md-success">Entrar</md-button>
+            <md-button type="submit" class="md-raised md-success"
+              >Entrar</md-button
+            >
           </div>
         </div>
       </md-card-content>
@@ -32,11 +51,8 @@
   </form>
 </template>
 <script>
-import { validationMixin } from 'vuelidate'
-import {
-  required,
-  email
-} from 'vuelidate/lib/validators'
+import { validationMixin } from "vuelidate";
+import { required, email } from "vuelidate/lib/validators";
 import { loginApi } from "../../api/login";
 export default {
   name: "login-form",
@@ -59,48 +75,47 @@ export default {
   validations: {
     form: {
       password: {
-        required
+        required,
       },
       emailadress: {
         required,
-        email
-      }
-    }
+        email,
+      },
+    },
   },
-  methods:{
-    getValidationClass (fieldName) {
-      const field = this.$v.form[fieldName]
+  methods: {
+    getValidationClass(fieldName) {
+      const field = this.$v.form[fieldName];
 
       if (field) {
         return {
-          'md-invalid': field.$invalid && field.$dirty
-        }
+          "md-invalid": field.$invalid && field.$dirty,
+        };
       }
     },
-    clearForm () {
-      this.$v.$reset()
-      this.form.password = null
-      this.form.emailadress = null
+    clearForm() {
+      this.$v.$reset();
+      this.form.password = null;
+      this.form.emailadress = null;
     },
-    saveUser () {
-
+    saveUser() {
       const payload = {
-        "email": this.form.emailadress,
-        "password": this.form.password
+        email: this.form.emailadress,
+        password: this.form.password,
       };
 
       console.log(payload, this.$cookies);
 
       loginApi.login(payload, this);
     },
-    validateUser () {
-      this.$v.$touch()
+    validateUser() {
+      this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        this.saveUser()
+        this.saveUser();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style></style>

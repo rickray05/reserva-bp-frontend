@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" mode="out-in">
-    <Login/>
+    <Login />
   </transition>
 </template>
 <script>

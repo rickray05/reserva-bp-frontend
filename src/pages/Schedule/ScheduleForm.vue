@@ -22,7 +22,7 @@
               <label>Data Início</label>
             </md-datepicker>
             <span class="md-error" v-if="!$v.form.start_at.required"
-            >O campo Data Início é obrigatório</span
+              >O campo Data Início é obrigatório</span
             >
           </div>
           <div class="md-layout-item md-small-size-100 md-size-25">
@@ -30,16 +30,21 @@
               <label>Hora Início</label>
               <md-input v-model="form.time_start_at" type="time"></md-input>
               <span class="md-error" v-if="!$v.form.time_end_at.required"
-              >O campo Hora Início é obrigatório</span
+                >O campo Hora Início é obrigatório</span
               >
             </md-field>
           </div>
           <div class="md-layout-item md-small-size-100 md-size-25">
-            <md-datepicker v-model="form.end_at" md-immediately :class="getValidationClass('end_at')" :md-model-type="String">
+            <md-datepicker
+              v-model="form.end_at"
+              md-immediately
+              :class="getValidationClass('end_at')"
+              :md-model-type="String"
+            >
               <label>Data Fim</label>
             </md-datepicker>
             <span class="md-error" v-if="!$v.form.end_at.required"
-            >O campo Data Fim é obrigatório</span
+              >O campo Data Fim é obrigatório</span
             >
           </div>
           <div class="md-layout-item md-small-size-100 md-size-25">

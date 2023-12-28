@@ -39,7 +39,9 @@ export const loginApi = {
       });
   },
   me: async function (component) {
-    await axios.get(APP_CONFIG.API_URL + "user/me").then((response) => {
+    await axios
+      .get(APP_CONFIG.API_URL + "user/me")
+      .then((response) => {
         localStorage.setItem("user", JSON.stringify(response.data));
       })
       .catch((error) => {

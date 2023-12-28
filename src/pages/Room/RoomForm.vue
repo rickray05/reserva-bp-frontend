@@ -1,5 +1,10 @@
 <template>
-  <form novalidate class="md-layout" @submit.prevent="validateRoom" autocomplete="off">
+  <form
+    novalidate
+    class="md-layout"
+    @submit.prevent="validateRoom"
+    autocomplete="off"
+  >
     <md-card>
       <md-card-header :data-background-color="dataBackgroundColor">
         <h4 class="title">{{ this.$props.title }}</h4>
@@ -69,7 +74,7 @@ export default {
       },
       classnumber: {
         required,
-      }
+      },
     },
   },
   methods: {
